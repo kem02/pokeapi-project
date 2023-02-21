@@ -1,28 +1,23 @@
-import { Box, Card, Flex, Spinner, Image, Heading, Text, Button } from "@chakra-ui/react";
 import { useState } from "react";
-import { useLoaderData, useNavigate } from "react-router-dom";
+import { Box, Card, Flex, Spinner, Image, Heading, Text, Button } from "@chakra-ui/react";
+import { useLoaderData, Link } from "react-router-dom";
 import wallpaper from "../assets/wallpaperflare.jpg"
 
-
-export default function Pokemon() {
+export default function SearchResult() {
     const [flipPic, setFlipPic] = useState(false)
 
-    const pokemonData = useLoaderData();
-    // console.log(pokemonData);
-    const navigate = useNavigate();
+    const result = useLoaderData();
+    // console.log(result)
 
 
-    const pokemonImage = flipPic ? pokemonData.sprites.back_default : pokemonData.sprites.front_default;
+    const pokemonImage = flipPic ? result.sprites.back_default : result.sprites.front_default;
 
     const toggleClick = () => {
         setFlipPic(prevState => !prevState)
     }
 
-
-
     return (
         <Box
-            style={{ fontFamily: "'Open Sans', Arial, sans-serif" }}
             // border="1px solid red"
             justifyContent="center"
             align="center"
@@ -33,9 +28,8 @@ export default function Pokemon() {
             height={"100vh"}
             opacity={0.965}
         >
-
             {
-                pokemonData ?
+                result ?
                     <Flex
                         width="full"
                         // border="1px solid black"
@@ -44,15 +38,16 @@ export default function Pokemon() {
                     >
 
                         <Button
-                            onClick={() => navigate(-1)}
                             mr="20px"
                             mb="160px"
+                            as={Link}
+                            to="/search"
                         >Back
                         </Button>
 
 
                         <Card
-                            key={pokemonData.name}
+                            key={result.name}
                             p={6}
                             border="1px solid red"
                             mt="250px"
@@ -62,9 +57,8 @@ export default function Pokemon() {
                             bg="#FFFFEA"
                             boxShadow='dark-lg'
                             rounded='md'
-                            mr="260px"
+                            mr="110px"
                         >
-
                             <Text>Click on the sprite to see the back!</Text>
 
                             <Image
@@ -74,29 +68,29 @@ export default function Pokemon() {
                                 w="130px"
                             />
 
-                            <Heading style={{ textDecoration: "underline" }} mb={4}>
-                                {pokemonData.name.toUpperCase()}
+                            <Heading style={{ textDecoration: "underline" }} mb={4} >
+                                {result.name.toUpperCase()}
                             </Heading>
 
-                            <Flex>Type:{pokemonData.types.map((item) => (
+                            <Flex>Type:{result.types.map((item) => (
                                 // console.log(item.type.name)
-                                <Box ml={2}>
+                                <Box ml={2} >
                                     {item.type.name}
                                 </Box>
-                            ))};
+                            ))}
                             </Flex>
 
                             <Text>
-                                Height: {pokemonData.height}
+                                Height: {result.height}
                             </Text>
 
                             <Text>
-                                Weight: {pokemonData.weight}
+                                Weight: {result.weight}
                             </Text>
 
-                            <Box>{pokemonData.stats.map((item) => (
+                            <Box>{result.stats.map((item) => (
                                 // console.log(item.stat.name)
-                                <Text ml={2}>
+                                <Text ml={2} >
                                     {item.stat.name[0].toUpperCase() + item.stat.name.slice(1)}: {item.base_stat}
                                 </Text>
                             ))}
