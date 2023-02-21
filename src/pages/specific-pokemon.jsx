@@ -1,6 +1,6 @@
 import { Box, Card, Flex, Spinner, Image, Heading, Text, Button } from "@chakra-ui/react";
 import { useState } from "react";
-import { useLoaderData, Link, useNavigate } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import wallpaper from "../assets/wallpaperflare.jpg"
 
 
@@ -22,6 +22,7 @@ export default function Pokemon() {
 
     return (
         <Box
+            style={{ fontFamily: "'Open Sans', Arial, sans-serif" }}
             // border="1px solid red"
             justifyContent="center"
             align="center"
@@ -31,7 +32,7 @@ export default function Pokemon() {
             width={"100vw"}
             height={"100vh"}
             opacity={0.965}
-            >
+        >
 
             {
                 pokemonData ?
@@ -40,9 +41,14 @@ export default function Pokemon() {
                         // border="1px solid black"
                         justifyContent="center"
                         align="center"
-                        >
+                    >
 
-                        <Button onClick={() => navigate(-1)}>Back</Button>
+                        <Button
+                            onClick={() => navigate(-1)}
+                            mr="20px"
+                            mb="160px"
+                        >Back
+                        </Button>
 
 
                         <Card
@@ -56,8 +62,10 @@ export default function Pokemon() {
                             bg="#FFFFEA"
                             boxShadow='dark-lg'
                             rounded='md'
-                            mr="250px"
-                            >
+                            mr="260px"
+                        >
+
+                            <Text>Click on the sprite to see the back!</Text>
 
                             <Image
                                 src={pokemonImage}
@@ -75,7 +83,7 @@ export default function Pokemon() {
                                 <Box ml={2}>
                                     {item.type.name}
                                 </Box>
-                            ))}
+                            ))};
                             </Flex>
 
                             <Text>

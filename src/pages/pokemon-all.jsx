@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useLoaderData, Link } from "react-router-dom";
 import { Box, Flex, Spacer, Spinner, Button, HStack, Image } from "@chakra-ui/react";
 import axios from "axios";
+import "../index.css"
 
 export default function AllPokemon() {
     const [nextUrl, setNextUrl] = useState("");
@@ -50,9 +51,10 @@ export default function AllPokemon() {
             {
                 pokeData ?
                     <Flex
+                        style={{ fontFamily: "'Open Sans', Arial, sans-serif" }}
                         // border="5px solid blue"
                         justifyContent="center"
-                        >
+                    >
                         <Flex
                             border="5px solid red"
                             mt="50px"
@@ -62,14 +64,12 @@ export default function AllPokemon() {
 
                             boxShadow='dark-lg'
                             rounded='md'
-                            >
+                        >
                             <Spacer />
                             <Box
                                 ml="35px"
-                                // m="40px"
-                                // border="5px solid green"
-                                // w="150px"
-                                >
+                            // border="5px solid green"
+                            >
 
                                 {
                                     pokeData.results.slice(0, 10).map((item) => (
@@ -85,7 +85,7 @@ export default function AllPokemon() {
                                                 h="50px"
                                                 onMouseEnter={() => getPokemonDetails(item.url)}
                                                 onMouseLeave={() => setCurrentPokemon(null)}
-                                                >
+                                            >
 
                                                 <Link to={`/pokemon/${item.name}`} >
                                                     {item.name}
@@ -110,13 +110,11 @@ export default function AllPokemon() {
 
                             <Box
                                 ml="70px"
-                                // m="40px"
-                                // border="5px solid green"
-                                // w="150px"
-                                >
+                            // border="5px solid green"
+                            >
                                 {
                                     pokeData.results.slice(10, 20).map((item) => (
-                                        
+
                                         <HStack>
                                             <Box
                                                 as="Button"
@@ -129,7 +127,7 @@ export default function AllPokemon() {
                                                 h="50px"
                                                 onMouseEnter={() => getPokemonDetails(item.url)}
                                                 onMouseLeave={() => setCurrentPokemon(null)}
-                                                >
+                                            >
 
                                                 <Link to={`/pokemon/${item.name}`} >
                                                     {item.name}
@@ -154,7 +152,7 @@ export default function AllPokemon() {
 
                             <Spacer />
                         </Flex>
-                       
+
 
                     </Flex>
                     :

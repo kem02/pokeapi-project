@@ -1,7 +1,6 @@
 import { Button, Flex, FormControl, FormLabel, Input, Box } from "@chakra-ui/react";
 import React, { useState, useEffect } from "react";
-import { Link, Outlet, useLoaderData, useNavigate, } from "react-router-dom";
-// import { getSpecificPokemon } from "../api";
+import { Outlet, useNavigate, } from "react-router-dom";
 import { useForm } from "react-hook-form"
 
 export default function Search() {
@@ -13,8 +12,7 @@ export default function Search() {
     const {register, handleSubmit, reset, formState } = useForm();
 
     const onSubmit = (data) => {
-        
-        console.log(data);
+        // console.log(data);
         const lowerCasePokemon = data.search.toLowerCase();
         navigate(`/search/${lowerCasePokemon}`);
         
@@ -29,11 +27,11 @@ export default function Search() {
 
     return (
         <>
-            <Box position="absolute" zIndex={10} left={0} right={0} >
+            <Box style={{ fontFamily: "'Open Sans', Arial, sans-serif" }} position="absolute" zIndex={10} left={0} right={0} >
                  <Flex justifyContent="center" alignItems="center" mt={2}>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <FormControl >
-                            <FormLabel htmlFor="search">Search for Pokemon</FormLabel>
+                            <FormLabel htmlFor="search" fontWeight="bold" fontSize="large">Search for Pokemon</FormLabel>
                             <Input {...register("search")} placeholder="Type pokemon here" backgroundColor="#EAEAEA"/>
                             <Button type="submit" width="100%">Search</Button>
                         </FormControl>

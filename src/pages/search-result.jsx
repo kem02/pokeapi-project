@@ -27,7 +27,7 @@ export default function SearchResult() {
             width={"100vw"}
             height={"100vh"}
             opacity={0.965}
-            >
+        >
             {
                 result ?
                     <Flex
@@ -35,9 +35,15 @@ export default function SearchResult() {
                         // border="1px solid black"
                         justifyContent="center"
                         align="center"
-                        >
+                    >
 
-                        <Button as={Link} to="/search">Back</Button>
+                        <Button
+                            mr="20px"
+                            mb="160px"
+                            as={Link}
+                            to="/search"
+                        >Back
+                        </Button>
 
 
                         <Card
@@ -51,8 +57,9 @@ export default function SearchResult() {
                             bg="#FFFFEA"
                             boxShadow='dark-lg'
                             rounded='md'
-                            mr="100px"
-                            >
+                            mr="110px"
+                        >
+                            <Text>Click on the sprite to see the back!</Text>
 
                             <Image
                                 src={pokemonImage}
@@ -106,12 +113,3 @@ export default function SearchResult() {
         </Box>
     )
 }
-
-//  {
-//                 result ?
-//                     <Box>
-//                         {result.name}
-//                     </Box>
-//                     :
-//                     <div>Pokemon data still loading...</div>
-//             }
