@@ -11,7 +11,7 @@ export default function Index() {
             backgroundSize="cover"
             backgroundPosition="center"
             width={"100%"}
-            height={"797px"}
+            height={"90vh"}
             opacity={0.965}
 
         >
@@ -20,7 +20,7 @@ export default function Index() {
                 justifyContent="center"
             >
                 <Box
-                    bg="rgba(52, 194, 255, 0.5)"
+                    bg="rgba(52, 194, 255, 0.7)"
                     border="2px solid cyan"
                     borderRadius="3xl"
                     w="500px"

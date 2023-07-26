@@ -15,7 +15,7 @@ export default function Navbar() {
 
     return (
         <>
-            <Flex padding="10px" background="red.500" align="center">
+            <Flex padding="10px" background="red.500" align="center" height={"10vh"}>
                 <Box>
                     <Image src={pokeball} alt="pokeball" boxSize="70px" onClick={handleImageClick} cursor="pointer" />
                 </Box>
